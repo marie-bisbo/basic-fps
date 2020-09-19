@@ -370,8 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d069ff023a927e74aad926fb000ee361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 913960626}
-  speed: 12
+  characterController: {fileID: 913960626}
+  movementSpeed: 12
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
