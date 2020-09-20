@@ -3,6 +3,7 @@
 public class TeleportationGrenade : MonoBehaviour
 {
 
+    public PlayerMovement player;
     public float detonationDelay = 3f;
 
     float countdown;
@@ -37,7 +38,7 @@ public class TeleportationGrenade : MonoBehaviour
 
     void Detonate()
     {
-        // Teleport player
+        player.Teleport();
         Destroy(gameObject);
     }
 }

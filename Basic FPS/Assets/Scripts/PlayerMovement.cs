@@ -30,14 +30,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grenadePosition = grenade.transform.position;
-        Debug.Log(grenadePosition);
-        if (!atGrenade)
-        {
-          characterController.transform.position = grenadePosition;
-          atGrenade = true;
-          Debug.Log(characterController.transform.position);
-        }
         CheckIfGrounded();
         MovePlayer();
         Jump();
@@ -77,5 +69,16 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+    }
+
+    public void Teleport()
+    {
+        grenadePosition = grenade.transform.position;
+        if (!atGrenade)
+        {
+          characterController.transform.position = grenadePosition;
+          atGrenade = true;
+        }
+
     }
 }

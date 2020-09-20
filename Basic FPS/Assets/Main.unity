@@ -757,6 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8545a19a7f9a1e846b510d8a60fad088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 913960628}
   detonationDelay: 3
 --- !u!1 &1940006455
 GameObject:
