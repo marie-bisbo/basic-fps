@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         grenadePosition = grenade.transform.position;
         if (!atGrenade)
         {
-          characterController.transform.position = grenadePosition;
+          characterController.transform.position = grenadePosition + new Vector3(0f, 1f, 0f);
           atGrenade = true;
         }
 
