@@ -16,15 +16,28 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    public Transform grenade;
+
+    bool atGrenade = false;
+    Vector3 grenadePosition;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        grenadePosition = grenade.transform.position;
+        Debug.Log(grenadePosition);
+        if (!atGrenade)
+        {
+          characterController.transform.position = grenadePosition;
+          atGrenade = true;
+          Debug.Log(characterController.transform.position);
+        }
         CheckIfGrounded();
         MovePlayer();
         Jump();

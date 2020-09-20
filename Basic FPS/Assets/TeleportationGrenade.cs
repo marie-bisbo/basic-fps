@@ -37,6 +37,7 @@ public class TeleportationGrenade : MonoBehaviour
 
     void Detonate()
     {
-        Debug.Log("TELEPORT");
+        // Teleport player
+        Destroy(gameObject);
     }
 }
