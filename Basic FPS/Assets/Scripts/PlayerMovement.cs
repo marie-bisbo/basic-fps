@@ -16,17 +16,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    public Transform grenade;
-
-    bool atGrenade = false;
-    Vector3 grenadePosition;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -71,14 +60,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Teleport()
+    public void Teleport(Vector3 position)
     {
-        grenadePosition = grenade.transform.position;
-        if (!atGrenade)
-        {
-          characterController.transform.position = grenadePosition + new Vector3(0f, 1f, 0f);
-          atGrenade = true;
-        }
-
+        characterController.transform.position = position + new Vector3(0f, 1f, 0f);
+        characterController.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
 }
