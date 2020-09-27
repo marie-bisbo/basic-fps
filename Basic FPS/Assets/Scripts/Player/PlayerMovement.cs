@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
+    public float thrustSpeed = 10f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -31,6 +32,16 @@ public class PlayerMovement : MonoBehaviour
         float zInput = Input.GetAxis("Vertical");
 
         Vector3 movementDirection = transform.right * xInput + transform.forward * zInput;
+        
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            characterController.Move(new Vector3(0f, 0.05f, 0f));
+        }
+        
+        if(Input.GetKey(KeyCode.LeftControl))
+        {
+            characterController.Move(new Vector3(0f, -0.05f, 0f));
+        }
 
         characterController.Move(movementDirection * movementSpeed * Time.deltaTime);
     }
