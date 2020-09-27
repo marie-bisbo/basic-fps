@@ -16,12 +16,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -64,5 +58,11 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+    }
+
+    public void Teleport(Vector3 position)
+    {
+        characterController.transform.position = position + new Vector3(0f, 1f, 0f);
+        characterController.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
 }
