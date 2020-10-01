@@ -35,15 +35,22 @@ public class PlayerMovement : MonoBehaviour
         
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            characterController.Move(new Vector3(0f, 0.05f, 0f));
+            characterController.Move(transform.up * thrustSpeed * Time.deltaTime);
         }
-        
+
         if(Input.GetKey(KeyCode.LeftControl))
         {
             characterController.Move(new Vector3(0f, -0.05f, 0f));
         }
 
-        characterController.Move(movementDirection * movementSpeed * Time.deltaTime);
+        if (Physics.CheckSphere(groundCheck.position, groundDistance, groundMask))
+        {
+            characterController.Move(movementDirection * movementSpeed * Time.deltaTime);
+        }
+        else
+        {
+            characterController.Move(movementDirection * thrustSpeed * Time.deltaTime);
+        }
     }
 
     void CheckIfGrounded()
