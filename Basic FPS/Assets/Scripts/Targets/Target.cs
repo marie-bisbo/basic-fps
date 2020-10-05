@@ -2,7 +2,11 @@
 
 public class Target : MonoBehaviour
 {
-    public float health = 50f;
+    public GameObject destroyedVersion;
+
+    public float health = 10f;
+
+    public float explosionForce = 500f;
 
     public void TakeDamage (float amount)
     {
@@ -15,6 +19,15 @@ public class Target : MonoBehaviour
 
     void Die ()
     {
+        GameObject destroyedObject = Instantiate(destroyedVersion, transform.position, transform.rotation);
+        Rigidbody[] allRigidBodies = destroyedObject.GetComponentsInChildren<Rigidbody>();
+        if (allRigidBodies.Length > 0)
+        {
+            foreach(var body in allRigidBodies)
+            {
+                body.AddExplosionForce(explosionForce, transform.position, 1);
+            }
+        }
         Destroy(gameObject);
     }
 }
