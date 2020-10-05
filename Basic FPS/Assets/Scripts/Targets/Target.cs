@@ -6,7 +6,7 @@ public class Target : MonoBehaviour
 
     public float health = 10f;
 
-    public float explosionForce = 500f;
+    public float explosionForce = 100f;
 
     public void TakeDamage (float amount)
     {

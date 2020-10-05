@@ -7,6 +7,11 @@ public class Gun : MonoBehaviour
     public float range = 100f;
 
     public Camera fpsCamera;
+    public Rigidbody rb;
+
+    private void Start()
+    {
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,13 +27,25 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            DestroyObject(hit);
+            HitWithBullet(hit);
+        }
+    }
 
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
-            {
-                target.TakeDamage(damage);
-            }
+    void DestroyObject(RaycastHit hit)
+    {
+        Target target = hit.transform.GetComponent<Target>();
+        if (target != null)
+        {
+            target.TakeDamage(damage);
+        }
+    }
+
+    void HitWithBullet(RaycastHit hit)
+    {
+        if (hit.rigidbody != null)
+        {
+            hit.rigidbody.AddForceAtPosition(transform.forward * damage, hit.point);
         }
     }
 }
