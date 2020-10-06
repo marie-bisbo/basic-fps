@@ -7,11 +7,8 @@ public class Gun : MonoBehaviour
     public float range = 100f;
 
     public Camera fpsCamera;
-    public Rigidbody rb;
 
-    private void Start()
-    {
-    }
+    public Rigidbody rb;
 
     // Update is called once per frame
     void Update()
