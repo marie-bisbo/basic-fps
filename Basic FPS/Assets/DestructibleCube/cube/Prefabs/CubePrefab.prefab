@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5531043828790011904}
   - component: {fileID: 5531043828790011908}
   m_Layer: 0
-  m_Name: cube
+  m_Name: CubePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: c014023bb1609ba438bd293f307752e6, type: 3}
+  - {fileID: 2100000, guid: 31147b6957070854b88a1b074e7f8a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0f748cc9cb5824e808d02eeeee4c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedVersion: {fileID: 79860617647873572, guid: 958e33bb516f4444dbfcf54630ba4db7,
+  destroyedVersion: {fileID: 8277894115432458108, guid: f375cc9c2f522da4893cfa257b5937f3,
     type: 3}
   health: 10
+  explosionForce: 200
