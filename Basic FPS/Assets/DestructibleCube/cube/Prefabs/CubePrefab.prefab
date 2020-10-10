@@ -126,4 +126,4 @@ MonoBehaviour:
   destroyedVersion: {fileID: 8277894115432458108, guid: f375cc9c2f522da4893cfa257b5937f3,
     type: 3}
   health: 10
-  explosionForce: 200
+  explosionForce: 50
