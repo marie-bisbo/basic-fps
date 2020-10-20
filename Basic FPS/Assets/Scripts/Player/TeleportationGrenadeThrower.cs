@@ -19,6 +19,7 @@ public class TeleportationGrenadeThrower : MonoBehaviour
     {
         GameObject grenade = Instantiate(grenadePrefab, transform.position + new Vector3(1f, 1f, 1f), transform.rotation);
         Rigidbody rigidBody = grenade.GetComponent<Rigidbody>();
-        rigidBody.AddForce(transform.forward * throwForce);
+        Vector3 throwDirection = (transform.forward + new Vector3(0f, 0.75f, 0f));
+        rigidBody.AddForce(throwDirection * throwForce);
     }
 }
