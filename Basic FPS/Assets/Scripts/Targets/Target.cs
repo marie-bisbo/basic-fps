@@ -14,15 +14,15 @@ public class Target : MonoBehaviour
         health -= amount;
         if (health <= 0 && transform.localScale.x > 1f)
         {
-            Multiply();
+            MultiplySelf();
         }
         else
         {
-            StartCoroutine(ScaleOverTime(2));
+            StartCoroutine(ExpandOverTime(2));
         }
     }
 
-    void Multiply ()
+    void MultiplySelf ()
     {
         GameObject cube1 = Instantiate(gameObject, transform.position + new Vector3(5f, 0f), transform.rotation);
         GameObject cube2 = Instantiate(gameObject, transform.position + new Vector3(-5f, 0f), transform.rotation);
@@ -31,12 +31,12 @@ public class Target : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator ScaleOverTime(float time)
+    IEnumerator ExpandOverTime(float time)
     {
         Vector3 originalScale = gameObject.transform.localScale;
-        Vector3 destinationScale = new Vector3(2.0f, 2.0f, 2.0f);
+        Vector3 destinationScale = new Vector3(2f, 2f, 2f);
 
-        float currentTime = 0.0f;
+        float currentTime = 0f;
 
         do
         {
@@ -54,9 +54,9 @@ public class Target : MonoBehaviour
         Rigidbody[] allRigidBodies = destroyedObject.GetComponentsInChildren<Rigidbody>();
         if (allRigidBodies.Length > 0)
         {
-            foreach (var body in allRigidBodies)
+            foreach (var rigidBody in allRigidBodies)
             {
-                body.AddExplosionForce(explosionForce, transform.position, 1);
+                rigidBody.AddExplosionForce(explosionForce, transform.position, 1);
             }
         }
         Destroy(gameObject);
